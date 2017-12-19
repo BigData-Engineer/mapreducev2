@@ -1,4 +1,4 @@
-package com.hadoop.mr.v2;
+package com.hadoop.mr.v2.wordcount;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
