@@ -1,4 +1,4 @@
-package com.hadoop.mr.v2;
+package com.hadoop.mr.v2.mapsidejoin;
 
 import java.io.DataInput;
 import java.io.DataOutput;

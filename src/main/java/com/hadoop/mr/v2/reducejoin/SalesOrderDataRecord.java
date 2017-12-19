@@ -1,4 +1,4 @@
-package com.hadoop.mr.v2;
+package com.hadoop.mr.v2.reducejoin;
 
 import java.io.DataInput;
 import java.io.DataOutput;

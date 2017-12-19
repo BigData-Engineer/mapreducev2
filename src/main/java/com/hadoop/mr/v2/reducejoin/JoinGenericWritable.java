@@ -1,4 +1,4 @@
-package com.hadoop.mr.v2;
+package com.hadoop.mr.v2.reducejoin;
 
 import org.apache.hadoop.io.GenericWritable;
 import org.apache.hadoop.io.Writable;
@@ -9,7 +9,7 @@ public class JoinGenericWritable extends GenericWritable {
     private static Class<? extends Writable>[] CLASSES = null;
 
     static {
-        CLASSES = (Class<? extends Writable>[]) new Class[] { SalesOrderDataRecord.class, ProductRecord.class };
+        CLASSES = (Class<? extends Writable>[]) new Class[] { SalesOrderDataRecord.class, ProductRecord.class, com.hadoop.mr.v2.mapsidejoin.ProductRecord.class };
     }
 
     public JoinGenericWritable() {

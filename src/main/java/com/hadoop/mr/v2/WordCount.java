@@ -125,7 +125,6 @@ public class WordCount {
         // SkipBadRecords.setAttemptsToStartSkipping(conf, 3);
         // SkipBadRecords.setSkipOutputPath(new JobConf(conf), new Path(""));
 
-        System.out.println(conf.get("dfs.namenode.name.dir"));
         List<String> otherArgs = new ArrayList<String>();
         for (int i = 0; i < remainingArgs.length; ++i) {
             if ("-skip".equals(remainingArgs[i])) {
