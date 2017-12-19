@@ -1,0 +1,8 @@
+Product:
+ProductID	Name	ProductNumber	MakeFlag	FinishedGoodsFlag	Color	SafetyStockLevel	ReorderPoint	StandardCost	ListPrice	Size	SizeUnitMeasureCode	WeightUnitMeasureCode	Weight	DaysToManufacture	ProductLine	Class	Style	ProductSubcategoryID	ProductModelID	SellStartDate	SellEndDate	DiscontinuedDate	rowguid	ModifiedDate
+
+Product Sub Category:
+ProductSubcategoryID	ProductCategoryID	Name	rowguid	ModifiedDate
+
+Sales Order Detail:
+SalesOrderID	SalesOrderDetailID	CarrierTrackingNumber	OrderQty	ProductID	SpecialOfferID	UnitPrice	UnitPriceDiscount	LineTotal	rowguid	ModifiedDate
