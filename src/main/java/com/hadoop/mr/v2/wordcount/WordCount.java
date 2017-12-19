@@ -114,30 +114,32 @@ public class WordCount {
             System.exit(2);
         }
 
-        Job job = Job.getInstance(conf, "word count");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(WordCountMapper.class);
-        job.setCombinerClass(WordCountReducer.class);
-        job.setReducerClass(WordCountReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        try (Job job = Job.getInstance(conf, "word count")) {
+            job.setJarByClass(WordCount.class);
+            job.setMapperClass(WordCountMapper.class);
+            job.setCombinerClass(WordCountReducer.class);
+            job.setReducerClass(WordCountReducer.class);
+            job.setOutputKeyClass(Text.class);
+            job.setOutputValueClass(IntWritable.class);
 
-        // SkipBadRecords.setAttemptsToStartSkipping(conf, 3);
-        // SkipBadRecords.setSkipOutputPath(new JobConf(conf), new Path(""));
+            // SkipBadRecords.setAttemptsToStartSkipping(conf, 3);
+            // SkipBadRecords.setSkipOutputPath(new JobConf(conf), new
+            // Path(""));
 
-        List<String> otherArgs = new ArrayList<String>();
-        for (int i = 0; i < remainingArgs.length; ++i) {
-            if ("-skip".equals(remainingArgs[i])) {
-                job.addCacheFile(new Path(remainingArgs[++i]).toUri());
-                job.getConfiguration().setBoolean("wordcount.skip.patterns", true);
-            } else {
-                otherArgs.add(remainingArgs[i]);
+            List<String> otherArgs = new ArrayList<String>();
+            for (int i = 0; i < remainingArgs.length; ++i) {
+                if ("-skip".equals(remainingArgs[i])) {
+                    job.addCacheFile(new Path(remainingArgs[++i]).toUri());
+                    job.getConfiguration().setBoolean("wordcount.skip.patterns", true);
+                } else {
+                    otherArgs.add(remainingArgs[i]);
+                }
             }
-        }
-        FileInputFormat.addInputPath(job, new Path(otherArgs.get(0)));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs.get(1)));
+            FileInputFormat.addInputPath(job, new Path(otherArgs.get(0)));
+            FileOutputFormat.setOutputPath(job, new Path(otherArgs.get(1)));
 
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+            System.exit(job.waitForCompletion(true) ? 0 : 1);
+        }
     }
 
 }

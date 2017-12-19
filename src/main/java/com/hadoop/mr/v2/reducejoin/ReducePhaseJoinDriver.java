@@ -36,6 +36,7 @@ public class ReducePhaseJoinDriver extends Configured implements Tool {
             super(ProductIdKey.class, true);
         }
 
+        @SuppressWarnings("rawtypes")
         @Override
         public int compare(WritableComparable a, WritableComparable b) {
             ProductIdKey first = (ProductIdKey) a;
@@ -49,6 +50,7 @@ public class ReducePhaseJoinDriver extends Configured implements Tool {
             super(ProductIdKey.class, true);
         }
 
+        @SuppressWarnings("rawtypes")
         @Override
         public int compare(WritableComparable a, WritableComparable b) {
             ProductIdKey first = (ProductIdKey) a;
